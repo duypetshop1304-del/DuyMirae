@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sản phẩm vay – Mirae Asset (Demo)</title>
+  <meta name="description" content="Chi tiết sản phẩm vay tiêu dùng: vay tiền mặt, vay trả góp, thẻ tín dụng đối tác; bảng so sánh và công cụ ước tính.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="assets/favicon.png">
+  <script defer src="script.js"></script>
+  <meta property="og:title" content="Sản phẩm vay – Mirae Asset (Demo)">
+  <meta property="og:description" content="Chi tiết sản phẩm vay tiêu dùng: vay tiền mặt, vay trả góp, thẻ tín dụng đối tác; bảng so sánh và công cụ ước tính.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og-cover.png">
+  <meta name="robots" content="index,follow">
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "Organization", "name": "Mirae Asset (Demo)", "url": "https://example.org", "sameAs": ["https://www.facebook.com/", "https://www.linkedin.com/"], "logo": "assets/og-cover.png", "contactPoint": [{"@type": "ContactPoint", "telephone": "+84-000-0000", "contactType": "customer service", "areaServed": "VN"}]}
+  </script>
+</head>
+
+<body>
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <div class="brand-badge">MA</div>
+      <span>Mirae Asset (Demo)</span>
+    </a>
+    <nav class="menu">
+      <a href="index.html" >Trang chủ</a>
+      <a href="san-pham.html" style="color:var(--brand)">Sản phẩm</a>
+      <a href="quy-trinh.html" >Quy trình</a>
+      <a href="faq.html" >Hỏi đáp</a>
+      <a href="lien-he.html" class="btn">Đăng ký ngay</a>
+    </nav>
+    <button class="mobile-toggle" data-toggle="menu" aria-label="Mở menu">
+      ☰ <span>Menu</span>
+    </button>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container">
+    <h2 id="cash">Vay tiền mặt</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="feature"><div class="dot"></div><div>Khoản vay: 10–100 triệu VNĐ</div></div>
+        <div class="feature"><div class="dot"></div><div>Kỳ hạn: 6–36 tháng</div></div>
+        <div class="feature"><div class="dot"></div><div>Hồ sơ: CCCD/CMND, sao kê lương hoặc chứng minh thu nhập</div></div>
+      </div>
+      <div class="card">
+        <h3>Lợi ích</h3>
+        <ul>
+          <li>Giải ngân nhanh vào tài khoản</li>
+          <li>Lãi suất cạnh tranh</li>
+          <li>Trả góp đều hàng tháng</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 id="installment" style="margin-top:28px">Vay trả góp mua sắm</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="feature"><div class="dot"></div><div>Tài trợ mua điện thoại, điện máy, nội thất…</div></div>
+        <div class="feature"><div class="dot"></div><div>Trả góp 6–24 tháng</div></div>
+        <div class="feature"><div class="dot"></div><div>Ưu đãi tại hệ thống đối tác</div></div>
+      </div>
+      <div class="card">
+        <h3>Điều kiện</h3>
+        <ul>
+          <li>Đủ 20 tuổi, quốc tịch Việt Nam</li>
+          <li>Không có nợ xấu tại thời điểm đăng ký</li>
+          <li>Có thu nhập ổn định</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 id="card" style="margin-top:28px">Thẻ tín dụng (đối tác)</h2>
+    <div class="card">
+      <p class="muted">Sản phẩm do đối tác phát hành. Điều kiện & biểu phí theo quy định của đơn vị phát hành.</p>
+    </div>
+
+    <h2 style="margin-top:28px" id="calculator">Công cụ ước tính trả góp</h2>
+    <div class="card">
+      <p class="muted">Đây là ước tính minh họa. Lãi suất và số tiền thực tế phụ thuộc thẩm định.</p>
+      <div class="grid grid-3" style="align-items:end">
+        <div>
+          <label>Số tiền vay (VNĐ)</label><br>
+          <input id="loan-amount" type="number" value="30000000" style="width:100%;padding:10px;border:1px solid #dde3f0;border-radius:8px">
+        </div>
+        <div>
+          <label>Kỳ hạn (tháng)</label><br>
+          <input id="loan-term" type="number" value="12" style="width:100%;padding:10px;border:1px solid #dde3f0;border-radius:8px">
+        </div>
+        <div>
+          <label>Lãi suất năm (%)</label><br>
+          <input id="interest" type="number" value="18" step="0.1" style="width:100%;padding:10px;border:1px solid #dde3f0;border-radius:8px">
+        </div>
+      </div>
+      <div style="margin-top:12px">
+        <button class="btn" onclick="calc()">Tính ngay</button>
+      </div>
+      <div id="result" class="note" style="margin-top:10px">Nhập thông tin và bấm Tính.</div>
+      <script>
+        function calc(){
+          const P = parseFloat(document.getElementById('loan-amount').value || 0);
+          const n = parseInt(document.getElementById('loan-term').value || 0);
+          const r = parseFloat(document.getElementById('interest').value || 0) / 100 / 12;
+          if(P<=0||n<=0||r<0){ document.getElementById('result').innerText='Vui lòng nhập số hợp lệ.'; return; }
+          // Công thức annuity: M = P * r * (1+r)^n / ((1+r)^n - 1)
+          const pow = Math.pow(1+r,n);
+          const M = r === 0 ? P / n : P * r * pow / (pow - 1);
+          const total = M * n;
+          const interest_total = total - P;
+          const fmt = new Intl.NumberFormat('vi-VN');
+          document.getElementById('result').innerHTML =
+            'Trả hàng tháng ước tính: <strong>' + fmt.format(Math.round(M)) + ' VNĐ</strong><br>' +
+            'Tổng trả: ' + fmt.format(Math.round(total)) + ' VNĐ • Tiền lãi: ' + fmt.format(Math.round(interest_total)) + ' VNĐ';
+        }
+      </script>
+    </div>
+
+    <h2 style="margin-top:28px">So sánh nhanh</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th></th><th>Vay tiền mặt</th><th>Vay trả góp</th></tr></thead>
+        <tbody>
+          <tr><td>Mục đích</td><td>Tự do sử dụng</td><td>Mua sắm hàng hóa</td></tr>
+          <tr><td>Giải ngân</td><td>Tài khoản ngân hàng</td><td>Tại điểm bán/đối tác</td></tr>
+          <tr><td>Kỳ hạn</td><td>6–36 tháng</td><td>6–24 tháng</td></tr>
+          <tr><td>Hồ sơ</td><td>CCCD + chứng minh thu nhập</td><td>CCCD + chứng từ mua hàng</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container"><span class="note">© Mirae Asset (Demo). Nội dung chỉ mang tính minh họa, không phải lời mời chào vay vốn.</span></div>
+</footer>
+</body>
+</html>
