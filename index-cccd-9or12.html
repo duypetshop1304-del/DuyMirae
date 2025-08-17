@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vay Tài Chính - Mẫu Website Uy Tín</title>
+  <meta name="description" content="Mẫu website vay vốn tài chính: tham khảo khoản vay, đăng ký nhanh bằng CCCD/CMND và SĐT, giao diện chuyên nghiệp, tông màu cam tươi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --brand:#ff7a1a; --brand-600:#fb6a00; --brand-700:#e55f00;
+      --ink:#1f2937; --muted:#6b7280; --bg:#fffaf6; --card:#ffffff;
+      --ring:rgba(255,122,26,.35); --ok:#16a34a; --warn:#b45309;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);}
+    a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+
+    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #f2e9e3}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;gap:10px;align-items:center}
+    .logo-mark{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--brand),#ffd39c)}
+    .logo h1{font-size:18px;margin:0;letter-spacing:.2px}
+    .nav a.btn{padding:10px 16px;border-radius:12px;background:var(--brand);color:#fff;font-weight:600;box-shadow:0 6px 20px -8px var(--ring)}
+    .nav a.btn:hover{background:var(--brand-600)}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{font-weight:500;color:var(--ink)}
+
+    .hero{padding:56px 0 24px;background:radial-gradient(1200px 600px at 70% -10%, #fff1e6 0%, #ffffff 45%, transparent 60%)}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .hero h2{font-size:40px;line-height:1.15;margin:0 0 12px}
+    .hero p{color:var(--muted);font-size:18px;margin:0 0 20px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{border:0;cursor:pointer}
+    .btn-primary{background:var(--brand);color:#fff;padding:14px 18px;border-radius:14px;font-weight:700;box-shadow:0 8px 24px -10px var(--ring)}
+    .btn-primary:hover{background:var(--brand-600)}
+    .btn-ghost{background:#fff;border:1px solid #ffe3cc;color:var(--brand-700);padding:14px 18px;border-radius:14px;font-weight:700}
+    .illus{border-radius:24px;overflow:hidden;border:1px solid #ffe3cc;box-shadow:0 10px 40px -16px var(--ring);background:linear-gradient(135deg,#fff,#fff6ed)}
+    .illus-inner{padding:20px}
+
+    section{padding:36px 0}
+    .section-title{font-size:26px;margin:0 0 16px}
+    .section-desc{color:var(--muted);margin:0 0 20px}
+
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);border:1px solid #ffe3cc;border-radius:18px;padding:18px;box-shadow:0 8px 28px -18px var(--ring)}
+    .card h3{margin:0 0 8px;font-size:18px}
+    .icon{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:#fff5eb;border:1px solid #ffe3cc;margin-bottom:10px}
+
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .field{display:flex;flex-direction:column;gap:8px}
+    label{font-weight:600}
+    input[type="range"], input[type="text"], input[type="tel"]{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #ffd5b3;background:#fff}
+    input:focus{outline:none;box-shadow:0 0 0 4px var(--ring)}
+    .note{font-size:12px;color:var(--muted)}
+
+    .value-badge{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:12px;
+      background:#fff1e6;
+      border:1px solid #ffd5b3;
+      box-shadow:0 6px 20px -12px var(--ring);
+      font-weight:800;
+      font-size:28px;
+      line-height:1;
+      color:var(--brand-700);
+      margin-left:6px;
+    }
+    @media (max-width:900px){ .value-badge{ font-size:24px; } }
+
+    .form{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end}
+    .form .field{margin:0}
+    .form button{height:48px}
+    .status{margin-top:10px;font-size:14px}
+    .status.ok{color:var(--ok)} .status.err{color:#b91c1c}
+
+    footer{border-top:1px solid #f2e9e3;padding:24px 0;color:var(--muted);font-size:14px}
+
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .form{grid-template-columns:1fr}
+      .nav-links{display:none}
+    }
+
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
+    .modal-backdrop.show{display:flex}
+    .modal-card{background:#fff;max-width:560px;width:100%;border-radius:16px;border:1px solid #ffe3cc;box-shadow:0 24px 72px -24px rgba(0,0,0,.35);padding:20px}
+    .modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
+    .modal-actions .btn{padding:10px 14px;border-radius:12px}
+    .modal-actions .primary{background:var(--brand);color:#fff}
+    .modal-actions .ghost{background:#fff;border:1px solid #ffe3cc;color:var(--brand-700)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-mark" aria-hidden="true"></div>
+        <h1>Vay Nhanh Uy Tín</h1>
+      </div>
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="#tham-khao">Tham khảo khoản vay</a>
+        <a href="#dang-ky">Đăng ký</a>
+        <a href="#lien-he">Liên hệ</a>
+      </nav>
+      <a class="btn btn" href="#dang-ky">Đăng ký ngay</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h2>Giải pháp vay tiêu dùng minh bạch<br/>xử lý nhanh trong ngày</h2>
+          <p>Tỷ lệ duyệt cao, thủ tục gọn. Bảo mật thông tin khách hàng. Phù hợp người đi làm có thu nhập ổn định.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#dang-ky">Đăng ký khoản vay</a>
+            <a class="btn btn-ghost" href="#tham-khao">Tham khảo khoản vay</a>
+          </div>
+          <p class="note" style="margin-top:10px">* Nội dung & giao diện lấy cảm hứng từ các tổ chức tài chính lớn trong nước – không sao chép thương hiệu hay lời chào mời cụ thể.</p>
+        </div>
+        <div class="illus" role="img" aria-label="Minh hoạ quy trình đơn giản">
+          <div class="illus-inner">
+            <div class="cards" style="grid-template-columns:repeat(2,1fr)">
+              <div class="card"><div class="icon">📄</div><h3>Điền thông tin</h3><p class="note">CCCD/CMND & SĐT để hỗ trợ nhanh.</p></div>
+              <div class="card"><div class="icon">⚡</div><h3>Xử lý nhanh</h3><p class="note">Tiếp nhận bởi quản lý phụ trách.</p></div>
+              <div class="card"><div class="icon">🛡️</div><h3>Bảo mật</h3><p class="note">Mã hoá & chỉ dùng cho tư vấn.</p></div>
+              <div class="card"><div class="icon">💬</div><h3>Tư vấn rõ ràng</h3><p class="note">Lãi suất, kỳ hạn minh bạch.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tham-khao">
+      <div class="container">
+        <h2 class="section-title">Tham khảo khoản vay</h2>
+        <p class="section-desc">Kéo thanh trượt để ước tính khoản trả hàng tháng (giả định lãi suất <strong>44%/năm</strong> ≈ 3,67%/tháng). Đây chỉ là ước tính tham khảo.</p>
+        <div class="card">
+          <div class="grid-2">
+            <div class="field">
+              <label for="amount">Số tiền dự kiến</label>
+              <input type="range" id="amount" min="3000000" max="92000000" step="1000000" value="20000000">
+              <div class="note">Min 3.000.000 — Max 92.000.000 |
+                <span id="amountView" class="value-badge"></span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="term">Kỳ hạn (tháng)</label>
+              <input type="range" id="term" min="6" max="48" step="1" value="12">
+              <div class="note">6–48 tháng |
+                <span id="termView" class="value-badge"></span> tháng
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div class="card" style="margin:0">
+              <h3 style="margin:0 0 6px">Ước tính trả hàng tháng</h3>
+              <div id="monthlyView" style="font-weight:700;font-size:20px"></div>
+              <div class="note">Tính theo công thức trả góp đều (annuity) với lãi 44%/năm.</div>
+            </div>
+            <div class="card" style="margin:0">
+              <h3 style="margin:0 0 6px">Tổng phải trả (ước tính)</h3>
+              <div id="totalView" style="font-weight:700;font-size:20px"></div>
+              <div class="note">Bao gồm gốc + lãi trong suốt kỳ hạn.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dang-ky">
+      <div class="container">
+        <h2 class="section-title">Đăng ký khoản vay</h2>
+        <p class="section-desc">Nhập <strong>CCCD/CMND</strong> (9 hoặc 12 số) và <strong>SĐT</strong>. Hệ thống sẽ chuyển thông tin về phía quản lý phụ trách để gọi tư vấn.</p>
+
+        <form id="leadForm" class="form" novalidate>
+          <div class="field">
+            <label for="cccd">Số CCCD/CMND</label>
+            <input id="cccd" name="cccd" type="text" inputmode="numeric" autocomplete="off"
+                   placeholder="9 hoặc 12 số" maxlength="12" required title="CCCD/CMND gồm 9 hoặc 12 số">
+          </div>
+          <div class="field">
+            <label for="phone">Số điện thoại</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="off"
+                   placeholder="Ví dụ: 09xxxxxxxx hoặc +84" maxlength="12" required title="SĐT bắt đầu bằng 0, 10–11 số">
+          </div>
+          <button type="submit" id="submitBtn" class="btn btn-primary">Gửi đăng ký</button>
+        </form>
+
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+        <p class="note" style="margin-top:10px">Khi bấm gửi, bạn đồng ý cho phép chúng tôi liên hệ và xử lý dữ liệu để tư vấn khoản vay theo quy định.</p>
+
+        <div id="leadsBox" class="card" style="margin-top:12px;display:none">
+          <h3 style="margin:0 0 8px">Lịch sử gửi (trên thiết bị này)</h3>
+          <div id="leadsList" class="note"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="lien-he">
+      <div class="container">
+        <h2 class="section-title">Liên hệ ngay</h2>
+        <p class="section-desc">Mục này sẽ được lập trình sau. Hiện giữ chỗ nhằm hoàn thiện luồng người dùng.</p>
+        <div class="card">
+          <p>Nếu cần hỗ trợ nhanh, vui lòng gọi <a href="tel:0395227123">0395-227-123</a> hoặc tổng đài <a href="tel:*1234">*1234</a>, hoặc email <a href="mailto:hotro@example.com">hotro@example.com</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Vay Nhanh Uy Tín. Tất cả quyền được bảo lưu. | Mẫu minh hoạ cho GitHub Pages.
+    </div>
+  </footer>
+
+  <div id="consentModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="consentTitle">
+    <div class="modal-card">
+      <h3 id="consentTitle" style="margin:0 0 8px">Xác nhận chia sẻ dữ liệu cá nhân</h3>
+      <p class="note" style="margin:0 0 8px">
+        Theo Nghị định 13/2023/NĐ-CP (VN), vui lòng xác nhận cho phép chúng tôi thu thập và xử lý: số CCCD/CMND, số điện thoại và thời điểm gửi yêu cầu. 
+        Thông tin được giữ bí mật và chỉ dùng để tư vấn khoản vay.
+      </p>
+      <label class="field" style="flex-direction:row;align-items:center;gap:8px">
+        <input type="checkbox" id="consentCheck" />
+        <span>Tôi đồng ý chia sẻ dữ liệu cá nhân nêu trên.</span>
+      </label>
+      <div class="modal-actions">
+        <button type="button" class="btn ghost" id="consentCancel">Hủy</button>
+        <button type="button" class="btn primary" id="consentAgree">Đồng ý & gửi</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const MANAGER_EMAIL = 'Duypetshop1304@gmail.com';
+    const OPTIONAL_WEBHOOK = '';
+
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    const RATE_ANNUAL = 0.44;
+    const amountEl = document.getElementById('amount');
+    const termEl = document.getElementById('term');
+    const amountView = document.getElementById('amountView');
+    const termView = document.getElementById('termView');
+    const monthlyView = document.getElementById('monthlyView');
+    const totalView = document.getElementById('totalView');
+
+    function fmtVND(x){ try{ return x.toLocaleString('vi-VN',{style:'currency',currency:'VND'});}catch(e){return x.toString();}}
+    function recalc(){
+      const P = Number(amountEl.value||0);
+      const n = Number(termEl.value||0);
+      const r = RATE_ANNUAL/12;
+      amountView.textContent = fmtVND(P);
+      termView.textContent = n;
+      if (r>0 && n>0){
+        const A = P * r / (1 - Math.pow(1+r, -n));
+        monthlyView.textContent = fmtVND(Math.round(A));
+        totalView.textContent = fmtVND(Math.round(A*n));
+      }
+    }
+    amountEl.addEventListener('input', recalc);
+    termEl.addEventListener('input', recalc);
+    recalc();
+
+    function toDigits(s){ return (s||'').replace(/\\D/g,''); }
+    function validateCCCD(raw){ const d = toDigits(raw); return d.length===9 || d.length===12; }
+    function normalizeVNPhone(raw){
+      let p = toDigits(raw);
+      if (p.startsWith('84')) p = '0' + p.slice(2);
+      if (!p.startsWith('0') && p.length>=9) p = '0' + p;
+      return p;
+    }
+    function validateVNPhone(raw){ const p = normalizeVNPhone(raw); return /^0\\d{9,10}$/.test(p); }
+
+    const cccdInput = document.getElementById('cccd');
+    const phoneInput = document.getElementById('phone');
+
+    // Gò input ngay khi gõ: CCCD/CMND chỉ số & tối đa 12; Phone chỉ số & tối đa 11
+    cccdInput.addEventListener('input', (e)=>{ e.target.value = toDigits(e.target.value).slice(0,12); });
+    phoneInput.addEventListener('input', (e)=>{ e.target.value = toDigits(e.target.value).slice(0,11); });
+
+    let consented = false;
+    const submitBtn = document.getElementById('submitBtn');
+    const consentModal = document.getElementById('consentModal');
+    const consentCheck = document.getElementById('consentCheck');
+    const consentAgree = document.getElementById('consentAgree');
+    const consentCancel = document.getElementById('consentCancel');
+    function openConsent(){ consentModal.classList.add('show'); }
+    function closeConsent(){ consentModal.classList.remove('show'); }
+    submitBtn.addEventListener('click', (ev)=>{ if(!consented){ ev.preventDefault(); openConsent(); }});
+    consentCancel.addEventListener('click', ()=> closeConsent());
+    consentAgree.addEventListener('click', ()=>{
+      if(!consentCheck.checked){ alert('Vui lòng tích chọn đồng ý chia sẻ dữ liệu cá nhân.'); return; }
+      consented = true; closeConsent(); document.getElementById('leadForm').requestSubmit(); setTimeout(()=>{consented=false;},500);
+    });
+
+    const form = document.getElementById('leadForm');
+    const statusEl = document.getElementById('status');
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      statusEl.textContent = ''; statusEl.className = 'status';
+
+      const cccd = toDigits(cccdInput.value);
+      const phone = normalizeVNPhone(phoneInput.value);
+
+      if (!validateCCCD(cccd)){
+        statusEl.textContent = 'Vui lòng nhập CCCD/CMND 9 hoặc 12 số.'; statusEl.classList.add('err'); return;
+      }
+      if (!validateVNPhone(phone)){
+        statusEl.textContent = 'Số điện thoại không hợp lệ (bắt đầu bằng 0, 10–11 số).'; statusEl.classList.add('err'); return;
+      }
+
+      const payload = { cccd, phone, submitted_at: new Date().toISOString(), source: location.href };
+
+      if (OPTIONAL_WEBHOOK){
+        try{
+          await fetch(OPTIONAL_WEBHOOK, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
+          statusEl.textContent = 'Gửi đăng ký thành công! Quản lý sẽ liên hệ sớm.'; statusEl.classList.add('ok');
+        }catch(err){
+          statusEl.textContent = 'Xin lỗi, gửi không thành công. Vui lòng thử lại sau.'; statusEl.classList.add('err');
+        }
+      } else {
+        const subject = encodeURIComponent('[Lead vay] ' + phone);
+        const body = encodeURIComponent(`Thông tin khách đăng ký:%0A- CCCD/CMND: ${cccd}%0A- SĐT: ${phone}%0A- Thời gian: ${new Date().toLocaleString()}%0A- Nguồn: ${location.href}`);
+        const mailtoUrl = `mailto:${encodeURIComponent(MANAGER_EMAIL)}?subject=${subject}&body=${body}`;
+        window.location.href = mailtoUrl;
+        statusEl.textContent = 'Đã mở email tới quản lý. Vui lòng bấm gửi trong ứng dụng email của bạn.'; statusEl.classList.add('ok');
+      }
+
+      try{
+        const key='leads_local';
+        const arr = JSON.parse(localStorage.getItem(key)||'[]');
+        arr.unshift(payload); localStorage.setItem(key, JSON.stringify(arr.slice(0,10)));
+        const box=document.getElementById('leadsBox'); const list=document.getElementById('leadsList');
+        if (box && list){ box.style.display='block'; list.innerHTML = arr.map(l=>`• ${new Date(l.submitted_at).toLocaleString()} — ID ${l.cccd} — ${l.phone}`).join('<br>'); }
+      }catch(e){}
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
